@@ -28,7 +28,7 @@ export function Layout({ children }: any) {
 					)}
 				</Toolbar>
 			</AppBar>
-			{children}
+			{status == 'authenticated' ? children : status == 'loading' ? 'Loading...' : 'Please sign in'}
 		</Box>
 	);
 }

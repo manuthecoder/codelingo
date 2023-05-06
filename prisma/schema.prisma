@@ -57,6 +57,7 @@ model VerificationToken {
 model Course {
    id       String @id @unique @default(uuid())
    language String
-   userId   String
-   user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+   identifier String
+   user       User   @relation(fields: [identifier], references: [email], onDelete: Cascade)
 }

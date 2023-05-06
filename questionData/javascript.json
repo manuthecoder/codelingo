@@ -109,15 +109,76 @@
     "correctAnswer": 1
     },
     {
-    "type": "build",
-    "prompt": "Create a function called reverseString that takes one parameter, str, and returns the string in reverse order.",
-    "choices": [ "function", "reverseString", "(", "str", ")", "{", "return", "str", ".", "split", "(", "", ")", ".", "reverse", "(", ")", ".", "join", "(", "", ")", ";", "}" ],
-    "correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 ]
-    },
-    {
     "type": "chat",
     "prompt": "What does the typeof operator return for null?",
     "answer": [ "'object'", "'null'", "'undefined'" ],
     "correctAnswer": 0
     },
+    {
+		"type": "chat",
+		"prompt": "What is the output of the following code? `console.log(Math.max(4, 8, 2, 6))`",
+		"answer": [ "4", "8", "2", "6" ],
+		"correctAnswer": 1
+	},
+    {
+		"type": "chat",
+		"prompt": "What is the difference between `null` and `undefined`?",
+		"answer": [ "`null` is explicitly set by the programmer to indicate no value, while `undefined` means that a variable has not been assigned a value.", "`undefined` is explicitly set by the programmer to indicate no value, while `null` means that a variable has not been assigned a value.", "`null` and `undefined` are the same." ],
+		"correctAnswer": 0
+	},
+    {
+		"type": "build",
+		"prompt": "Create a loop that logs the numbers from 1 to 10 to the console.",
+		"choices": [ "for", "(", "let", "i", "=", "1", ";", "i", "<=", "10", ";", "i", "++", ")", "{", "console", "/.", "log", "(", "i", ")", ";", "}" ],
+		"correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+	},
+	{
+		"type": "chat",
+		"prompt": "What is the purpose of the `break` statement in a loop?",
+		"answer": [ "To exit the loop immediately", "To skip the current iteration of the loop and move on to the next", "To jump to a specific point in the loop" ],
+		"correctAnswer": 0
+	},
+	{
+		"type": "build",
+		"prompt": "Create a loop that logs the even numbers from 0 to 10 to the console.",
+		"choices": [ "for", "(", "let", "i", "=", "0", ";", "i", "<=", "10", ";", "i", "+=", "2", ")", "{", "console", ".", "log", "(", "i", ")", ";", "}" ],
+		"correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ]
+	},
+	{
+		"type": "chat",
+		"prompt": "What is the difference between a `for` loop and a `while` loop?",
+		"answer": [ "A `for` loop is used when you know how many times you want to iterate, while a `while` loop is used when you want to iterate until a specific condition is met.", "A `while` loop is used when you know how many times you want to iterate, while a `for` loop is used when you want to iterate until a specific condition is met.", "`for` and `while` loops are the same." ],
+		"correctAnswer": 0
+	},
+   {
+		"type": "chat",
+		"prompt": "Which of the following is not a way to access an object's property?",
+		"answer": [ "object.propertyName", "object['propertyName']", "object.getPropertyName()", "object.propertyName()" ],
+		"correctAnswer": 0
+	},
+	{
+		"type": "build",
+		"prompt": "Create an object named `person` with properties `name`, `age`, and `city`.",
+		"choices": [ "let", "person", "=", "{", "}", "name", "age", "city" ],
+		"correctOrder": [ 0, 1, 2, 3, 4, 5, 6 ]
+	},
+	{
+		"type": "chat",
+		"prompt": "What is the syntax for adding a new property to an object?",
+		"answer": [ "object.propertyName = value", "object['propertyName'] = value", "object.setProperty('propertyName', value)", "object.newProperty = value" ],
+		"correctAnswer": 3
+	},
+	{
+		"type": "build",
+		"prompt": "Create a function named `getFullName` that takes an object with `firstName` and `lastName` properties as an argument, and returns the full name as a string.",
+		"choices": [ "function", "getFullName", "()", "{", "}", "firstName", "lastName", "+", "\"" ],
+		"correctOrder": [ 0, 1, 2, 3, 4, 5, 8, 7, 6 ]
+	},
+	{
+		"type": "chat",
+		"prompt": "What is the difference between an object's `hasOwnProperty` method and the `in` operator?",
+		"answer": [ "`hasOwnProperty` checks if the property exists in the object's prototype chain, while `in` operator checks if the property exists in the object itself", "`in` operator checks if the property exists in the object's prototype chain, while `hasOwnProperty` checks if the property exists in the object itself", "`hasOwnProperty` and `in` operator are the same", "neither `hasOwnProperty` nor `in` operator can be used to check if a property exists in an object" ],
+		"correctAnswer": 1
+	}
+
 ]
