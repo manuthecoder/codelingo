@@ -1,6 +1,15 @@
 import { Layout } from "@/components/Layout";
+import Course from "@/components/courses";
 import { EnrollCourse } from "@/components/courses/enroll";
-import { Alert, Box, Button, Card } from "@mui/material";
+import { Masonry } from "@mui/lab";
+import {
+  Alert,
+  Box,
+  Button,
+  Card,
+  CircularProgress,
+  Typography,
+} from "@mui/material";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 
@@ -23,9 +32,18 @@ export default function Home() {
             again later.
           </Alert>
         )}
-        {data.map((language) => (
-          <Course language={language} />
-        ))}
+        <Typography variant="h4" sx={{ fontWeight: 700 }} gutterBottom>
+          Courses
+        </Typography>
+        {data ? (
+          <Masonry columns={{ xs: 1, md: 2 }} spacing={2}>
+            {data.map((language: any, index: any) => (
+              <Course key={index} language={language} />
+            ))}
+          </Masonry>
+        ) : (
+          <CircularProgress />
+        )}
         {data?.length === 0 && (
           <Alert
             severity="info"
