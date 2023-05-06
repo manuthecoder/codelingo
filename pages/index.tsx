@@ -47,6 +47,7 @@ export default function Home() {
         {data?.length === 0 && (
           <Alert
             severity="info"
+            sx={{ mt: 2 }}
             action={
               <EnrollCourse>
                 <Button>Enroll</Button>
