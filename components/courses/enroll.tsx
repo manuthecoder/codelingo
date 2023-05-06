@@ -1,4 +1,13 @@
-import { Button, SwipeableDrawer, Typography } from "@mui/material";
+import { languages } from "@/questionData/languages";
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  SwipeableDrawer,
+  Typography,
+} from "@mui/material";
 import { cloneElement, useState } from "react";
 
 export function EnrollCourse({ children }: any) {
@@ -13,14 +22,40 @@ export function EnrollCourse({ children }: any) {
       {trigger}
       <SwipeableDrawer
         open={open}
-        disableSwipeToOpen
         anchor="right"
         onClose={handleClose}
         onOpen={handleOpen}
-        ModalProps={{ keepMounted: false }}
+        PaperProps={{
+          sx: {
+            width: "100%",
+            maxWidth: "500px",
+            background: "hsl(var(--base), 90%)",
+          },
+        }}
       >
-        <Typography variant="h5">Enroll</Typography>
-        <Typography>Pick a language</Typography>
+        <Box sx={{ p: 3 }}>
+          <Typography variant="h5" gutterBottom>
+            Enroll
+          </Typography>
+          <Typography>Pick a language</Typography>
+          {languages.map((language) => (
+            <Card variant="outlined" sx={{ my: 1, p: 2 }} key={language.name}>
+              <CardActionArea>
+                <CardContent>
+                  <picture>
+                    <img
+                      src={language.icon}
+                      alt={language.name}
+                      width="100"
+                      height="100"
+                    />
+                  </picture>
+                  <Typography>{language.name}</Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
+        </Box>
       </SwipeableDrawer>
     </>
   );
