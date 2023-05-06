@@ -35,6 +35,7 @@ export default function CoursePage() {
             <Typography
               className="font-grotesk"
               sx={{
+                fontWeight: 700,
                 textTransform: "capitalize",
                 fontSize: { xs: "60px", sm: "100px" },
                 overflow: "hidden",
