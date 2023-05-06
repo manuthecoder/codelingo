@@ -5,7 +5,12 @@
 body {
   background: hsl(var(--base), 95%);
 }
-*:not(.font-grotesk, .font-grotesk *) {
+*:not(
+    .font-grotesk,
+    .font-grotesk *,
+    .material-symbols-outlined,
+    .material-symbols-outlined *
+  ) {
   font-family: "Work Sans", sans-serif !important;
 }
 
