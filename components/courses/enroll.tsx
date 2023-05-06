@@ -10,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { useSession } from "next-auth/react";
-import Link from "next/link";
 import { cloneElement, useState } from "react";
 import { mutate } from "swr";
 
@@ -66,42 +65,37 @@ export function EnrollCourse({ mutationUrl, children }: any) {
           <Typography>Pick a language</Typography>
           <Masonry columns={{ xs: 1, sm: 2 }} spacing={2} sx={{ mt: 2 }}>
             {languages.map((language) => (
-              <Link
-                href={`/courses/${language.name}`}
-                passHref
+              <Card
+                onClick={() => handleCourseSelect(language.name)}
+                sx={{
+                  my: 1,
+                  textAlign: "center",
+                  background: "hsl(var(--base), 90%)",
+                  borderRadius: "28px",
+                  ...(loading && {
+                    opacity: 0.5,
+                  }),
+                }}
+                elevation={0}
                 key={language.name}
               >
-                <Card
-                  onClick={() => handleCourseSelect(language.name)}
-                  sx={{
-                    my: 1,
-                    textAlign: "center",
-                    background: "hsl(var(--base), 90%)",
-                    borderRadius: "28px",
-                    ...(loading && {
-                      opacity: 0.5,
-                    }),
-                  }}
-                  elevation={0}
-                >
-                  <CardActionArea disabled={loading}>
-                    <CardContent>
-                      <picture>
-                        <img
-                          style={{ borderRadius: "20px" }}
-                          src={language.icon}
-                          alt={language.name}
-                          draggable={false}
-                          width="100%"
-                        />
-                      </picture>
-                      <Typography sx={{ mt: 2, textTransform: "capitalize" }}>
-                        {language.name}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Link>
+                <CardActionArea disabled={loading}>
+                  <CardContent>
+                    <picture>
+                      <img
+                        style={{ borderRadius: "20px" }}
+                        src={language.icon}
+                        alt={language.name}
+                        draggable={false}
+                        width="100%"
+                      />
+                    </picture>
+                    <Typography sx={{ mt: 2, textTransform: "capitalize" }}>
+                      {language.name}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
             ))}
           </Masonry>
           <Alert severity="info">More languages coming soon!</Alert>
