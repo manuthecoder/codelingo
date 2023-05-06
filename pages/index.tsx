@@ -50,7 +50,7 @@ export default function Home() {
             severity="info"
             sx={{ mt: 2 }}
             action={
-              <EnrollCourse>
+              <EnrollCourse mutationUrl={url}>
                 <Button>Enroll</Button>
               </EnrollCourse>
             }

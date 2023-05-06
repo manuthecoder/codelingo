@@ -11,8 +11,9 @@ import {
 } from "@mui/material";
 import { useSession } from "next-auth/react";
 import { cloneElement, useState } from "react";
-``;
-export function EnrollCourse({ children }: any) {
+import { mutate } from "swr";
+
+export function EnrollCourse({ mutationUrl, children }: any) {
   const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -33,6 +34,7 @@ export function EnrollCourse({ children }: any) {
           email,
         })
     );
+    await mutate(mutationUrl);
     setLoading(false);
     setOpen(false);
   };
