@@ -11,7 +11,7 @@ export default function Document() {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Foldit:wght@600&family=Work+Sans:wght@300;500;700;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Work+Sans:wght@300;500;700;900&display=swap"
           rel="stylesheet"
         />
         <meta name="theme-color" content="hsl(198, 45%, 90%)" />

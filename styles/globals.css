@@ -5,13 +5,13 @@
 body {
   background: hsl(var(--base), 95%);
 }
-*:not(.font-foldit, .font-foldit *) {
+*:not(.font-grotesk, .font-grotesk *) {
   font-family: "Work Sans", sans-serif !important;
 }
 
-.font-foldit,
-.font-foldit * {
-  font-family: "Foldit", cursive !important;
+.font-grotesk,
+.font-grotesk * {
+	font-family: 'Space Grotesk', sans-serif!important;
 }
 
 .MuiTouchRipple-rippleVisible {

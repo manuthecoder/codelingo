@@ -33,7 +33,7 @@ export default function CoursePage() {
             }}
           >
             <Typography
-              className="font-foldit"
+              className="font-grotesk"
               sx={{
                 textTransform: "capitalize",
                 fontSize: { xs: "60px", sm: "100px" },

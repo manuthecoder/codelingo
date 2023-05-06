@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Box,
   Button,
   CircularProgress,
   CssBaseline,
@@ -9,8 +10,8 @@ import {
   createTheme,
 } from "@mui/material";
 import { signIn, useSession } from "next-auth/react";
-import { AccountMenu } from "./AccountMenu";
 import Link from "next/link";
+import { AccountMenu } from "./AccountMenu";
 
 const theme = createTheme({
   components: {
@@ -113,7 +114,11 @@ export function Layout({ children }: any) {
       >
         <Toolbar>
           <Link href="/" passHref>
-            <Typography variant="h5" className="font-foldit">
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 700 }}
+              className="font-grotesk"
+            >
               Codelingo
             </Typography>
           </Link>
@@ -133,11 +138,54 @@ export function Layout({ children }: any) {
           )}
         </Toolbar>
       </AppBar>
-      {status == "authenticated"
-        ? children
-        : status == "loading"
-        ? "Loading..."
-        : "Please sign in"}
+      {status == "authenticated" ? (
+        children
+      ) : status == "loading" ? (
+        "Loading..."
+      ) : (
+        <Box sx={{ p: 3 }}>
+          <Typography
+            variant="h3"
+            className="font-grotesk"
+            sx={{ fontWeight: 700 }}
+          >
+            Codelingo
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Your interactive coding companion
+          </Typography>
+          <Typography>
+            <b>🖥️ Interactive Coding Lessons</b>
+            <br /> Dive into a series of bite-sized coding lessons designed to
+            teach you fundamental concepts, programming languages, and advanced
+            techniques. Each lesson combines theory with hands-on practice,
+            allowing you to apply what you&apos;ve learned in real-time.
+            <br />
+            <br />
+            <b>🏆 Gamified Learning</b>
+            <br /> Make learning fun and addictive with CodeLingo&apos;s
+            gamified approach. Earn experience points (XP), unlock achievements,
+            and level up as you progress through different coding challenges.
+            Compete with friends or challenge yourself to reach the top of the
+            global leaderboards. confidence.
+            <br />
+            <br />
+            <b>🔔 Personalized Learning Path</b>
+            <br /> CodeLingo understands that everyone learns differently.
+            That&apos;s why it tailors your learning path based on your goals,
+            skill level, and preferred programming languages. Whether
+            you&apos;re interested in Python, JavaScript, Java, or any other
+            language, CodeLingo has you covered.
+            <br />
+            <br />
+            <b> 📱 Mobile Flexibility</b>
+            <br /> Learn coding anytime, anywhere with CodeLingo&apos;s mobile
+            app. Take your coding lessons on the go, practice coding challenges
+            during your commute, or engage with the community from the comfort
+            of your smartphone or tablet.
+          </Typography>
+        </Box>
+      )}
     </ThemeProvider>
   );
 }
