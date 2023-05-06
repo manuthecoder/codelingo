@@ -9,15 +9,34 @@ import {
   SwipeableDrawer,
   Typography,
 } from "@mui/material";
+import { useSession } from "next-auth/react";
 import { cloneElement, useState } from "react";
 ``;
 export function EnrollCourse({ children }: any) {
+  const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const trigger = cloneElement(children, {
     onClick: handleOpen,
   });
+
+  const handleCourseSelect = async (language: string) => {
+    const email: any = session?.user?.email;
+
+    setLoading(true);
+    await fetch(
+      "/api/user/courses/enroll?" +
+        new URLSearchParams({
+          language,
+          email,
+        })
+    );
+    setLoading(false);
+    setOpen(false);
+  };
+
   return (
     <>
       {trigger}
@@ -45,16 +64,20 @@ export function EnrollCourse({ children }: any) {
           <Masonry columns={{ xs: 1, sm: 2 }} spacing={2} sx={{ mt: 2 }}>
             {languages.map((language) => (
               <Card
+                onClick={() => handleCourseSelect(language.name)}
                 sx={{
                   my: 1,
                   textAlign: "center",
                   background: "hsl(var(--base), 90%)",
                   borderRadius: "28px",
+                  ...(loading && {
+                    opacity: 0.5,
+                  }),
                 }}
                 elevation={0}
                 key={language.name}
               >
-                <CardActionArea>
+                <CardActionArea disabled={loading}>
                   <CardContent>
                     <picture>
                       <img

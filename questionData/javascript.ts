@@ -2,7 +2,7 @@ export const data = [
   {
     type: "chat",
     prompt: "Which of these defines a variable that can be reassigned?",
-    answer: ["let foo = 2", "const foo = 2", "var foo = 2"],
+    answer: ["let varName = 2", "const varName = 2", "var varName = 2"],
     correctAnswer: 2,
   },
   {
