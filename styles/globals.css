@@ -1,0 +1,15 @@
+:root {
+	--base: 198, 45%;
+}
+
+body {
+	background: hsl(var(--base), 95%);
+}
+*:not(.font-foldit, .font-foldit *) {
+	font-family: 'Work Sans', sans-serif !important;
+}
+
+.font-foldit,
+.font-foldit * {
+	font-family: 'Foldit', cursive !important;
+}

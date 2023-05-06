@@ -1,5 +1,6 @@
 import { AppBar, Box, Button, CircularProgress, CssBaseline, Toolbar, Typography } from '@mui/material';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
+import { AccountMenu } from './AccountMenu';
 
 export function Layout({ children }: any) {
 	const { data: session, status } = useSession();
@@ -7,15 +8,19 @@ export function Layout({ children }: any) {
 	return (
 		<Box>
 			<CssBaseline />
-			<AppBar position="static">
+			<AppBar
+				position="static"
+				elevation={0}
+				sx={{ background: 'hsl(var(--base), 90%)', color: 'hsl(var(--base), 10%)' }}
+			>
 				<Toolbar>
-					<Typography>Codelingo</Typography>
+					<Typography variant="h5" className="font-foldit">
+						Codelingo
+					</Typography>
 					{status == 'loading' ? (
 						<CircularProgress color="inherit" sx={{ ml: 'auto' }} />
 					) : status == 'authenticated' ? (
-						<Button variant="outlined" sx={{ ml: 'auto' }} color="inherit" onClick={() => signOut()}>
-							Sign Out
-						</Button>
+						<AccountMenu user={session} />
 					) : (
 						<Button variant="outlined" sx={{ ml: 'auto' }} color="inherit" onClick={() => signIn()}>
 							Sign In

@@ -1,0 +1,123 @@
+[
+   {
+      "type": "chat",
+      "prompt": "Which of these defines a variable that can be reassigned?",
+      "answer": [
+         "let foo = 2",
+         "const foo = 2",
+         "var foo = 2"
+      ],
+      "correctAnswer": 2
+   },
+   {
+      "type": "build",
+      "prompt": "How do you define a constant variable, `foo`?",
+      "choices": [
+         "var",
+         "const",
+         "foo",
+         "=",
+         "\"example value\""
+      ],
+      "correctOrder": [
+         1,
+         2,
+         3,
+         4
+      ]
+   },
+   {
+      "type": "chat",
+      "prompt": "Which of the following is a string?",
+      "answer": [
+         "123",
+         "\"hello\"",
+         "true"
+      ],
+      "correctAnswer": 1
+   },
+   {
+    "type": "build",
+    "prompt": "Create a variable called name and assign it the value John.",
+    "choices": [ "let", "const", "name", "=", "\"John\"" ],
+    "correctOrder": [ 0, 2, 3, 1 ]
+    },
+    {
+    "type": "build",
+    "prompt": "Create a constant variable called age and assign it the value 30.",
+    "choices": [ "var", "const", "age", "=", "30" ],
+    "correctOrder": [ 1, 2, 3, 4 ]
+    },
+    {
+    "type": "chat",
+    "prompt": "What is the difference between == and ===?",
+    "answer": [ "== checks for value equality, while === checks for value and type equality.", "== checks for value and type equality, while === checks for value equality.", "== and === are the same." ],
+    "correctAnswer": 0
+    },
+    {
+    "type": "build",
+    "prompt": "Create a function called multiply that takes two parameters, num1 and num2, and returns their product.",
+    "choices": [ "function", "multiply", "(", "num1", ",", "num2", ")", "{", "return", "num1", "*", "num2", ";", "}" ],
+    "correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+    },
+    {
+    "type": "chat",
+    "prompt": "What does the typeof operator return?",
+    "answer": [ "The data type of a variable", "The value of a variable", "The name of a variable" ],
+    "correctAnswer": 0
+    },
+    {
+    "type": "build",
+    "prompt": "Create an array called fruits with the values apple, banana, and orange.",
+    "choices": [ "const", "fruits", "=", "[", "\"apple\"", ",", "\"banana\"", ",", "\"orange\"", "]", ";" ],
+    "correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+    },
+    {
+    "type": "chat",
+    "prompt": "What does the push method do?",
+    "answer": [ "Adds an element to the beginning of an array", "Adds an element to the end of an array", "Removes the last element of an array" ],
+    "correctAnswer": 1
+    },
+    {
+    "type": "chat",
+    "prompt": "What is the output of the following code? console.log(2 + '2')",
+    "answer": [ "'22'", "4", "NaN" ],
+    "correctAnswer": 0
+    },
+    {
+    "type": "build",
+    "prompt": "Create an object called person with properties name and age.",
+    "choices": [ "const", "person", "=", "{", "name", ":", "\"John\"", ",", "age", ":", "30", "}", ";" ],
+    "correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+    },
+    {
+    "type": "chat",
+    "prompt": "What is the difference between let and var?",
+    "answer": [ "let has block scope, while var has function scope.", "var has block scope, while let has function scope.", "let and var are the same." ],
+    "correctAnswer": 0
+    },
+    {
+    "type": "build",
+    "prompt": "Create a function called isEven that takes one parameter, num, and returns a boolean indicating whether the number is even.",
+    "choices": [ "function", "isEven", "(", "num", ")", "{", "return", "num", "%", "2", "===", "0", ";", "}" ],
+    "correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+    },
+    {
+    "type": "chat",
+    "prompt": "What does the pop method do?",
+    "answer": [ "Removes an element from the beginning of an array", "Removes an element from the end of an array", "Adds an element to the end of an array" ],
+    "correctAnswer": 1
+    },
+    {
+    "type": "build",
+    "prompt": "Create a function called reverseString that takes one parameter, str, and returns the string in reverse order.",
+    "choices": [ "function", "reverseString", "(", "str", ")", "{", "return", "str", ".", "split", "(", "", ")", ".", "reverse", "(", ")", ".", "join", "(", "", ")", ";", "}" ],
+    "correctOrder": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 ]
+    },
+    {
+    "type": "chat",
+    "prompt": "What does the typeof operator return for null?",
+    "answer": [ "'object'", "'null'", "'undefined'" ],
+    "correctAnswer": 0
+    },
+]
