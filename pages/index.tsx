@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { EnrollCourse } from "@/components/courses/enroll";
-import { Alert, Box, Button } from "@mui/material";
+import { Alert, Box, Button, Card } from "@mui/material";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 
@@ -23,6 +23,9 @@ export default function Home() {
             again later.
           </Alert>
         )}
+        {data.map((language) => (
+          <Course language={language} />
+        ))}
         {data?.length === 0 && (
           <Alert
             severity="info"
