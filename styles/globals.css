@@ -1,15 +1,24 @@
 :root {
-	--base: 198, 45%;
+  --base: 198, 45%;
 }
 
 body {
-	background: hsl(var(--base), 95%);
+  background: hsl(var(--base), 95%);
 }
 *:not(.font-foldit, .font-foldit *) {
-	font-family: 'Work Sans', sans-serif !important;
+  font-family: "Work Sans", sans-serif !important;
 }
 
 .font-foldit,
 .font-foldit * {
-	font-family: 'Foldit', cursive !important;
+  font-family: "Foldit", cursive !important;
+}
+
+.MuiTouchRipple-rippleVisible {
+  animation-duration: 0.25s !important;
+}
+
+.MuiTouchRipple-child {
+  filter: opacity(0.3) !important;
+  background: hsl(240, 11%, 10%);
 }

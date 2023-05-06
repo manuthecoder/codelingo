@@ -1,6 +1,7 @@
 import { languages } from "@/questionData/languages";
 import { Masonry } from "@mui/lab";
 import {
+  Alert,
   Box,
   Card,
   CardActionArea,
@@ -30,10 +31,13 @@ export function EnrollCourse({ children }: any) {
             width: "100%",
             maxWidth: "500px",
             background: "hsl(var(--base), 95%)",
+            m: "10px",
+            borderRadius: "28px",
+            height: "calc(100vh - 20px)",
           },
         }}
       >
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 4 }}>
           <Typography variant="h5" sx={{ fontWeight: 700 }} gutterBottom>
             Learn a new language
           </Typography>
@@ -54,20 +58,22 @@ export function EnrollCourse({ children }: any) {
                   <CardContent>
                     <picture>
                       <img
-                        style={{ borderRadius: "4px" }}
+                        style={{ borderRadius: "20px" }}
                         src={language.icon}
                         alt={language.name}
                         draggable={false}
-                        width="100"
-                        height="100"
+                        width="100%"
                       />
                     </picture>
-                    <Typography sx={{ mt: 2 }}>{language.name}</Typography>
+                    <Typography sx={{ mt: 2, textTransform: "capitalize" }}>
+                      {language.name}
+                    </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
             ))}
           </Masonry>
+          <Alert severity="info">More languages coming soon!</Alert>
         </Box>
       </SwipeableDrawer>
     </>
