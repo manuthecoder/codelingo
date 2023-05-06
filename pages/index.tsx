@@ -36,11 +36,13 @@ export default function Home() {
           Courses
         </Typography>
         {data ? (
-          <Masonry columns={{ xs: 1, md: 2 }} spacing={2}>
-            {data.map((language: any, index: any) => (
-              <Course key={index} language={language} />
-            ))}
-          </Masonry>
+          <Box sx={{ mr: -2 }}>
+            <Masonry columns={{ xs: 1, md: 2 }} spacing={2}>
+              {data.map((language: any, index: any) => (
+                <Course key={index} language={language} />
+              ))}
+            </Masonry>
+          </Box>
         ) : (
           <CircularProgress />
         )}
