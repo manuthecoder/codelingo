@@ -1,3 +1,5 @@
+import { Layout } from '@/components/Layout';
+
 export default function Home() {
-  return <></>;
+	return <Layout>Let&apos;s fuck baby</Layout>;
 }
