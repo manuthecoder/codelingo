@@ -11,7 +11,7 @@ export function Layout({ children }: any) {
 				<Toolbar>
 					<Typography>Codelingo</Typography>
 					{status == 'loading' ? (
-						<CircularProgress color="inherit" />
+						<CircularProgress color="inherit" sx={{ ml: 'auto' }} />
 					) : status == 'authenticated' ? (
 						<Button variant="outlined" sx={{ ml: 'auto' }} color="inherit" onClick={() => signOut()}>
 							Sign Out
