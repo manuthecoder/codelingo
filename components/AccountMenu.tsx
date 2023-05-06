@@ -21,7 +21,10 @@ export function AccountMenu({ user }: any) {
         open={open}
         onClose={handleClose}
         BackdropProps={{
-          sx: { background: "transparent!important" },
+          sx: {
+            backdropFilter: "none!important",
+            background: "transparent!important",
+          },
         }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>

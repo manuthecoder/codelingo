@@ -5,16 +5,16 @@ import { useRouter } from "next/router";
 export default function CoursePage() {
   const router = useRouter();
 
-  const getRandomLesson = () => {
-    //get info later
-    const lesson = {
-      //dummy lesson
-      type: "chat",
-      prompt: "Which of these defines a variable that can be reassigned?",
-      answer: ["let varName = 2", "const varName = 2", "var varName = 2"],
-      correctAnswer: 2,
-    };
-  };
+  // const getRandomLesson = () => { 
+  //   //get info later
+  //   const lesson = {
+  //     //dummy lesson
+  //     type: "chat",
+  //     prompt: "Which of these defines a variable that can be reassigned?",
+  //     answer: ["let varName = 2", "const varName = 2", "var varName = 2"],
+  //     correctAnswer: 2,
+  //   };
+  // };
 
   const language = router?.query?.course?.[0] ?? null;
 
