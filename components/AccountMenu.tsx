@@ -1,5 +1,6 @@
 import { Avatar, IconButton, Menu, MenuItem } from "@mui/material";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export function AccountMenu({ user }: any) {
@@ -27,7 +28,9 @@ export function AccountMenu({ user }: any) {
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <Link href={`/profile/${user.user.email}`}>
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+        </Link>
         <MenuItem onClick={() => signOut()}>Logout</MenuItem>
       </Menu>
     </>

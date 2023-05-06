@@ -11,7 +11,7 @@ body {
 
 .font-grotesk,
 .font-grotesk * {
-	font-family: 'Space Grotesk', sans-serif!important;
+  font-family: "Space Grotesk", sans-serif !important;
 }
 
 .MuiTouchRipple-rippleVisible {
@@ -24,5 +24,6 @@ body {
 }
 
 a {
+  color: inherit;
   text-decoration: none;
 }
