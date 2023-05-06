@@ -10,9 +10,7 @@ export default function Course({ language }: any) {
     <Link
       href={`/courses/${language.language}`}
       passHref
-      style={{
-        textDecoration: "none",
-      }}
+      style={{ textDecoration: "none" }}
     >
       <Card
         sx={{

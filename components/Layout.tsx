@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { signIn, useSession } from "next-auth/react";
 import { AccountMenu } from "./AccountMenu";
+import Link from "next/link";
 
 const theme = createTheme({
   components: {
@@ -50,9 +51,11 @@ export function Layout({ children }: any) {
         }}
       >
         <Toolbar>
-          <Typography variant="h5" className="font-foldit">
-            Codelingo
-          </Typography>
+          <Link href="/" passHref>
+            <Typography variant="h5" className="font-foldit">
+              Codelingo
+            </Typography>
+          </Link>
           {status == "loading" ? (
             <CircularProgress color="inherit" sx={{ ml: "auto" }} />
           ) : status == "authenticated" ? (

@@ -22,3 +22,7 @@ body {
   filter: opacity(0.3) !important;
   background: hsl(240, 11%, 10%);
 }
+
+a {
+  text-decoration: none;
+}
