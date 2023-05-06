@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export default function CoursePage() {
   const router = useRouter();
 
-  // const getRandomLesson = () => { 
+  // const getRandomLesson = () => {
   //   //get info later
   //   const lesson = {
   //     //dummy lesson
@@ -23,15 +23,34 @@ export default function CoursePage() {
       <Box sx={{ p: 5 }}>
         {!language && <Alert severity="error">Language not specified</Alert>}
         {language && (
-          <Box sx={{ textAlign: "center", py: 5 }}>
+          <Box
+            sx={{
+              textAlign: "center",
+              py: { xs: 3, sm: 5 },
+              overflow: "hidden",
+              whiteSpace: "noWrap",
+              textOverflow: "ellipsis",
+            }}
+          >
             <Typography
               className="font-foldit"
-              variant="h1"
-              sx={{ textTransform: "capitalize" }}
+              sx={{
+                textTransform: "capitalize",
+                fontSize: { xs: "60px", sm: "100px" },
+                overflow: "hidden",
+                whiteSpace: "noWrap",
+                textOverflow: "ellipsis",
+              }}
             >
               {language}
             </Typography>
-            <Typography sx={{ textTransform: "uppercase", opacity: 0.6 }}>
+            <Typography
+              sx={{
+                textTransform: "uppercase",
+                opacity: 0.6,
+                fontSize: { xs: "15px", sm: "16px" },
+              }}
+            >
               69 lessons &bull; 49 completed
             </Typography>
           </Box>
