@@ -187,7 +187,7 @@ export function Level({
             }}
           >
             <Typography
-              variant="h3"
+              variant="h4"
               className="font-grotesk"
               sx={{ fontWeight: 700 }}
             >

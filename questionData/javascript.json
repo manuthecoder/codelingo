@@ -147,12 +147,12 @@
     "type": "chat",
     "prompt": "Which of the following is not a way to access an object's property?",
     "answer": [
-      "object.propertyName",
       "object['propertyName']",
+      "object.propertyName",
       "object.getPropertyName()",
       "object.propertyName()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 3
   },
   {
@@ -207,14 +207,14 @@
     "type": "chat",
     "prompt": "What is the correct syntax to create an array named 'myArray' with 3 elements, '1', '2', and '3'?",
     "answer": [
-      "var myArray = [1,2,3]",
       "var myArray = (1,2,3)",
+      "var myArray = [1,2,3]",
       "var myArray = {1,2,3}",
       "var myArray = \"1",
       "2",
       "3\""
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 2
   },
   {
@@ -233,12 +233,12 @@
     "type": "chat",
     "prompt": "What is the purpose of the 'console.log()' method in JavaScript?",
     "answer": [
+      "to create a loop",
       "to output a value to the console",
       "to declare a variable",
-      "to create a loop",
       "to define a function"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "level": 1
   },
   {
