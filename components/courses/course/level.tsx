@@ -144,11 +144,25 @@ export function Level({ questions, reverse, index, language, color }: any) {
           />
         ))}
         {progress.filter((p) => p !== "incomplete").length === 5 && (
-          <Box>
-            <Typography variant="h6">Congratulations!</Typography>
-            <Typography variant="body1">
-              You have completed this level
+          <Box
+            sx={{
+              p: 4,
+              textAlign: "center",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            <Typography
+              variant="h3"
+              className="font-grotesk"
+              sx={{ fontWeight: 700 }}
+            >
+              Congratulations!
             </Typography>
+            <Typography variant="h6">You have completed this level</Typography>
             <Typography variant="body1">
               Accuracy:{" "}
               {Math.round(

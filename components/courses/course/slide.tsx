@@ -3,86 +3,76 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-function BuildCode({ question, progress, setProgress }: any) {
-  const isMobile = useMediaQuery("(max-width: 600px)");
-  // {"type":"build","prompt":"How do you declare a function named 'add' that takes two parameters, 'a' and 'b'?","choices":["function","add","(","a",",","b",")","{","}","return"],"correctOrder":[0,1,2,3,4,5,7,8,9],"level":2}
-
-  const [phrase, setPhrase] = useState<string[]>([]);
-
+function QuestionChoice({
+  answer,
+  setProgress,
+  answerIndex,
+  index,
+  question,
+  progress,
+  isMobile,
+  alreadyAnsweredIncorrectly,
+  setAlreadyAnsweredIncorrectly,
+}: any) {
   return (
-    <>
-      <Box
-        sx={{
-          alignItems: "end",
-          justifyContent: "end",
-          display: "flex",
-          gap: 2,
-          width: "100%",
-          mt: 2,
+    <Box sx={{ display: "flex", justifyContent: "end" }} key={answer}>
+      <Button
+        disabled={
+          alreadyAnsweredIncorrectly && answerIndex !== question.correctAnswer
+        }
+        onClick={() => {
+          if (answerIndex === question.correctAnswer) {
+            toast.success("Correct!");
+            new Audio("/correct.wav").play();
+            setProgress(
+              progress.map((item: any, i: number) =>
+                i === index ? "correct" : item
+              )
+            );
+          } else {
+            setAlreadyAnsweredIncorrectly(true);
+            toast.error("Incorrect answer");
+            setTimeout(() => {
+              setProgress(
+                progress.map((item: any, i: number) =>
+                  i === index ? "incorrect" : item
+                )
+              );
+            }, 1000);
+            new Audio("/incorrect.wav").play();
+          }
         }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 1,
-            color: "#000",
-            px: 2,
-            py: 1,
-            background: "#007AFF",
-            minWidth: "100px",
-            borderRadius: 5,
-            minHeight: 45,
-            borderBottomRightRadius: 0,
-          }}
-        >
-          {phrase.length === 0 && (
-            <Box
-              sx={{ width: "100%", height: 35, borderBottom: "1px solid #fff" }}
-            />
-          )}
-          {phrase.map((word: string, index: number) => (
-            <Button
-              key={index}
-              variant="outlined"
-              color="inherit"
-              onClick={() => setPhrase(phrase.filter((w, i) => i !== index))}
-            >
-              {question.choices[word]}
-            </Button>
-          ))}
-        </Box>
-      </Box>
-      <Box
+        variant="contained"
+        disableElevation
         sx={{
-          backdropFilter: "blur(10px)",
-          p: 3,
-          width: "100%",
+          mt: 1,
+          background: "#007AFF",
+          ...(alreadyAnsweredIncorrectly &&
+            answerIndex === question.correctAnswer && {
+              color: "#000",
+              background: "#00FF00",
+            }),
           borderRadius: 5,
-          mt: "auto",
+          minWidth: "unset",
+          borderBottomRightRadius: 0,
+          textTransform: "none",
+          display: "flex",
+          justifyContent: "end",
+          alignItems: "end",
+          textAlign: "right",
         }}
       >
-        <Divider sx={{ mb: 2 }} />
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
-          {question.choices.map((word: any, index: any) => (
-            <Button
-              variant="outlined"
-              key={word}
-              onClick={() => setPhrase([...phrase, index])}
-              disabled={phrase.includes(index)}
-            >
-              {word}
-            </Button>
-          ))}
-        </Box>
-      </Box>
-    </>
+        <Typography {...(!isMobile && { variant: "h6" })}>{answer}</Typography>
+      </Button>
+    </Box>
   );
 }
 
 export default function Slide({ index, progress, setProgress, question }: any) {
   const currentSlide = progress.findIndex((item: any) => item === "incomplete");
   const isMobile = useMediaQuery("(max-width: 600px)");
+  const [alreadyAnsweredIncorrectly, setAlreadyAnsweredIncorrectly] =
+    useState(false);
 
   return index === currentSlide ? (
     <Box
@@ -131,68 +121,34 @@ export default function Slide({ index, progress, setProgress, question }: any) {
           </Typography>
         </Box>
       </Box>
-      {question.type === "chat" ? (
-        <>
-          <Box
-            sx={{
-              backdropFilter: "blur(10px)",
-              p: 3,
-              width: "100%",
-              borderRadius: 5,
-              mt: "auto",
-            }}
-          >
-            <Divider sx={{ mb: 2 }} />
-            <Typography sx={{ textAlign: "center" }} variant="body2">
-              SELECT A REPLY
-            </Typography>
-            {question.answer.map((answer: any, answerIndex: number) => (
-              <Box sx={{ display: "flex", justifyContent: "end" }} key={answer}>
-                <Button
-                  onClick={() => {
-                    if (answerIndex === question.correctAnswer) {
-                      toast.success("Correct!");
-                      new Audio("/correct.wav").play();
-                      setProgress(
-                        progress.map((item: any, i: number) =>
-                          i === index ? "correct" : item
-                        )
-                      );
-                    } else {
-                      toast.error("Incorrect answer");
-                      new Audio("/incorrect.wav").play();
-                    }
-                  }}
-                  variant="contained"
-                  disableElevation
-                  sx={{
-                    mt: 1,
-                    background: "#007AFF",
-                    borderRadius: 5,
-                    minWidth: "unset",
-                    borderBottomRightRadius: 0,
-                    textTransform: "none",
-                    display: "flex",
-                    justifyContent: "end",
-                    alignItems: "end",
-                    textAlign: "right",
-                  }}
-                >
-                  <Typography {...(!isMobile && { variant: "h6" })}>
-                    {answer}
-                  </Typography>
-                </Button>
-              </Box>
-            ))}
-          </Box>
-        </>
-      ) : (
-        <BuildCode
-          question={question}
-          progress={progress}
-          setProgress={setProgress}
-        />
-      )}
+      <Box
+        sx={{
+          backdropFilter: "blur(10px)",
+          p: 3,
+          width: "100%",
+          borderRadius: 5,
+          mt: "auto",
+        }}
+      >
+        <Divider sx={{ mb: 2 }} />
+        <Typography sx={{ textAlign: "center" }} variant="body2">
+          SELECT A REPLY
+        </Typography>
+        {question.answer.map((answer: any, answerIndex: number) => (
+          <QuestionChoice
+            index={index}
+            key={answer}
+            answer={answer}
+            answerIndex={answerIndex}
+            setProgress={setProgress}
+            question={question}
+            progress={progress}
+            isMobile={isMobile}
+            alreadyAnsweredIncorrectly={alreadyAnsweredIncorrectly}
+            setAlreadyAnsweredIncorrectly={setAlreadyAnsweredIncorrectly}
+          />
+        ))}
+      </Box>
     </Box>
   ) : (
     <></>
