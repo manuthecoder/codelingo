@@ -49,7 +49,7 @@ export function EnrollCourse({ mutationUrl, children }: any) {
         onOpen={handleOpen}
         PaperProps={{
           sx: {
-            width: "100%",
+            width: "calc(100vw - 20px)",
             maxWidth: "500px",
             background: "hsl(var(--base), 95%)",
             m: "10px",
