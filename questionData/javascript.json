@@ -269,23 +269,23 @@
     "type": "chat",
     "prompt": "What is the purpose of the 'Math.random()' method in JavaScript?",
     "answer": [
-      "to generate a random number between 0 and 1",
       "to generate a random integer between 0 and 100",
       "to generate a random number between 0 and a specified number",
+      "to generate a random number between 0 and 1",
       "to generate a random integer between two specified numbers"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "level": 2
   },
   {
     "type": "chat",
     "prompt": "What is an infinite loop?",
     "answer": [
-      "An infinite loop is a loop that runs forever",
       "An infinite loop is a loop that only runs once",
+      "An infinite loop is a loop that runs forever",
       "An infinite loop is a loop that stops when a condition is met"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 3
   },
   {

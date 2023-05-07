@@ -189,12 +189,13 @@ export function Level({
             <Typography
               variant="h4"
               className="font-grotesk"
+              gutterBottom
               sx={{ fontWeight: 700 }}
             >
               Congratulations!
             </Typography>
-            <Typography>You have completed this level</Typography>
-            <Typography variant="body1">
+            <Typography gutterBottom>You have completed this level</Typography>
+            <Typography variant="body1" gutterBottom>
               Accuracy:{" "}
               {Math.round(
                 (progress.filter((p) => p === "correct").length /
