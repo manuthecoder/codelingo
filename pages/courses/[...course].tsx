@@ -142,6 +142,11 @@ export default function CoursePage() {
                 try again later!
               </Alert>
             )}
+            {progressData?.length === levels.length && (
+              <Alert severity="success" sx={{ mt: 2 }} variant="filled">
+                W RIZZ!!!
+              </Alert>
+            )}
           </Box>
         )}
       </Box>
