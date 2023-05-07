@@ -193,7 +193,7 @@ export function Level({
             >
               Congratulations!
             </Typography>
-            <Typography variant="h6">You have completed this level</Typography>
+            <Typography>You have completed this level</Typography>
             <Typography variant="body1">
               Accuracy:{" "}
               {Math.round(
