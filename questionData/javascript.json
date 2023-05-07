@@ -114,11 +114,11 @@
     "type": "chat",
     "prompt": "What is the difference between `null` and `undefined`?",
     "answer": [
-      "`null` is explicitly set by the programmer to indicate no value, while `undefined` means that a variable has not been assigned a value.",
       "`undefined` is explicitly set by the programmer to indicate no value, while `null` means that a variable has not been assigned a value.",
+      "`null` is explicitly set by the programmer to indicate no value, while `undefined` means that a variable has not been assigned a value.",
       "`null` and `undefined` are the same."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 2
   },
   {
