@@ -86,7 +86,7 @@ export default function CoursePage() {
                 fontSize: { xs: "15px", sm: "16px" },
               }}
             >
-              69 lessons &bull; 49 completed
+              {levels.length} levels &bull; {levels.length * 10} questions
             </Typography>
             <Box>
               <Timeline position="alternate">

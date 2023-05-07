@@ -6,6 +6,7 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import {
   AppBar,
+  Box,
   CardActionArea,
   Drawer,
   IconButton,
@@ -126,8 +127,9 @@ export function Level({ questions, reverse, index, language, color }: any) {
               sx={{ ml: 2, flexGrow: 1, height: 20, borderRadius: 20 }}
               variant="determinate"
               value={
-                progress.filter((p) => p !== "incomplete").length /
-                progress.length
+                (progress.filter((p) => p !== "incomplete").length /
+                  progress.length) *
+                100
               }
             />
           </Toolbar>
@@ -141,6 +143,23 @@ export function Level({ questions, reverse, index, language, color }: any) {
             index={index}
           />
         ))}
+        {progress.filter((p) => p !== "incomplete").length === 5 && (
+          <Box>
+            <Typography variant="h6">Congratulations!</Typography>
+            <Typography variant="body1">
+              You have completed this level
+            </Typography>
+            <Typography variant="body1">
+              Accuracy:{" "}
+              {Math.round(
+                (progress.filter((p) => p === "correct").length /
+                  progress.length) *
+                  100
+              )}
+              %
+            </Typography>
+          </Box>
+        )}
       </Drawer>
     </>
   );
