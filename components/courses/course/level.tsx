@@ -18,6 +18,7 @@ import {
 import { useSession } from "next-auth/react";
 import { cloneElement, useMemo, useState } from "react";
 import Slide from "./slide";
+import { mutate } from "swr";
 
 export function Level({
   progressUrl,
