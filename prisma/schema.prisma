@@ -43,7 +43,8 @@ model User {
    accounts      Account[]
    sessions      Session[]
 
-   Courses Course[]
+   Courses        Course[]
+   CourseProgress CourseProgress[]
 }
 
 model VerificationToken {
@@ -57,6 +58,16 @@ model VerificationToken {
 model Course {
    id       String @id @unique @default(uuid())
    language String
+
+   identifier String
+   user       User   @relation(fields: [identifier], references: [email], onDelete: Cascade)
+}
+
+model CourseProgress {
+   id       String @id @unique @default(uuid())
+   language String
+   level    String
+   accuracy Int
 
    identifier String
    user       User   @relation(fields: [identifier], references: [email], onDelete: Cascade)

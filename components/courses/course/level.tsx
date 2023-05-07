@@ -7,6 +7,7 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import {
   AppBar,
   Box,
+  Button,
   CardActionArea,
   Drawer,
   IconButton,
@@ -16,8 +17,10 @@ import {
 } from "@mui/material";
 import { cloneElement, useMemo, useState } from "react";
 import Slide from "./slide";
+import { useSession } from "next-auth/react";
 
 export function Level({ questions, reverse, index, language, color }: any) {
+  const { data: session } = useSession();
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState<
     ("incomplete" | "correct" | "incorrect")[]
@@ -84,6 +87,14 @@ export function Level({ questions, reverse, index, language, color }: any) {
   const trigger = cloneElement(item, {
     onClick: () => setOpen(true),
   });
+
+  const handleSave = (data: any) => {
+    alert(JSON.stringify(data));
+    fetch(
+      "/api/user/courses/save-data?" +
+        new URLSearchParams({ ...data, email: session?.user?.email })
+    );
+  };
 
   return (
     <>
@@ -172,6 +183,22 @@ export function Level({ questions, reverse, index, language, color }: any) {
               )}
               %
             </Typography>
+            <Button
+              onClick={() =>
+                handleSave({
+                  accuracy: Math.round(
+                    (progress.filter((p) => p === "correct").length /
+                      progress.length) *
+                      100
+                  ),
+                  level: index,
+                  language,
+                })
+              }
+              variant="contained"
+            >
+              Save and continue
+            </Button>
           </Box>
         )}
       </Drawer>
