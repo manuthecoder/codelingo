@@ -119,7 +119,12 @@ export default function CoursePage() {
                 <TimelineItem>
                   <TimelineSeparator>
                     <TimelineConnector />
-                    <TimelineDot color="warning" sx={{ color: "black" }}>
+                    <TimelineDot
+                      {...(progressData?.length === levels.length && {
+                        color: "warning",
+                      })}
+                      sx={{ color: "black" }}
+                    >
                       <span className="material-symbols-outlined">
                         verified
                       </span>

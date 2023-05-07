@@ -60,9 +60,14 @@ export function Level({
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineConnector />
-        <TimelineDot color="success" sx={{ color: "#fff" }}>
-          <span className="material-symbols-outlined">check</span>
-        </TimelineDot>{" "}
+        <TimelineDot
+          {...(isExisting && { color: "success" })}
+          sx={{ color: isExisting ? "#fff" : "#000" }}
+        >
+          <span className="material-symbols-outlined">
+            {isExisting ? "check" : "star"}
+          </span>
+        </TimelineDot>
         <TimelineConnector />
       </TimelineSeparator>
       <TimelineContent sx={{ py: "12px", px: 2 }}>
@@ -84,8 +89,13 @@ export function Level({
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineConnector />
-        <TimelineDot color="success" sx={{ color: "#fff" }}>
-          <span className="material-symbols-outlined">check</span>
+        <TimelineDot
+          {...(isExisting && { color: "success" })}
+          sx={{ color: isExisting ? "#fff" : "#000" }}
+        >
+          <span className="material-symbols-outlined">
+            {isExisting ? "check" : "star"}
+          </span>
         </TimelineDot>
         <TimelineConnector />
       </TimelineSeparator>
