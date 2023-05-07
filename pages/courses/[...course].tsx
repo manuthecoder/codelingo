@@ -64,7 +64,7 @@ export default function CoursePage() {
 
   return (
     <Layout>
-      <Box sx={{ p: 5 }}>
+      <Box sx={{ p: { xs: 2, sm: 5 } }}>
         {!language && <Alert severity="error">Language not specified</Alert>}
         {language && (
           <Box

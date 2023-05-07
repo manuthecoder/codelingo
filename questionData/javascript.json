@@ -292,11 +292,11 @@
     "type": "chat",
     "prompt": "What is a nested loop?",
     "answer": [
-      "A nested loop is a loop inside another loop",
       "A nested loop is a loop that only runs once",
+      "A nested loop is a loop inside another loop",
       "A nested loop is a loop that runs backwards"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 3
   },
   {
@@ -325,11 +325,11 @@
     "type": "chat",
     "prompt": "What is polymorphism in Java?",
     "answer": [
-      "Polymorphism is the ability of an object to take on many forms. In Java, this can be achieved through method overloading and method overriding",
       "Polymorphism is the ability of an object to inherit multiple classes. In Java, this can be achieved through multiple inheritance",
+      "Polymorphism is the ability of an object to take on many forms. In Java, this can be achieved through method overloading and method overriding",
       "Polymorphism is the ability of an object to access other objects in the same package. In Java, this can be achieved through package-level access modifiers"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 5
   },
   {
@@ -358,11 +358,11 @@
     "type": "chat",
     "prompt": "What is a constructor in Java?",
     "answer": [
-      "A constructor is a special method that is used to create and initialize objects. It has the same name as the class and no return type. When an object is created, the constructor is called automatically and initializes the object with default or provided values.",
       "A constructor is a method that is used to modify objects. It can be called multiple times to update the object with new values.",
+      "A constructor is a special method that is used to create and initialize objects. It has the same name as the class and no return type. When an object is created, the constructor is called automatically and initializes the object with default or provided values.",
       "A constructor is not a concept in Java."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 4
   },
   {
@@ -380,11 +380,11 @@
     "type": "chat",
     "prompt": "Which of the following is true about constructors?",
     "answer": [
-      "Constructors have the same name as the class they are in",
       "Constructors can have a return type",
+      "Constructors have the same name as the class they are in",
       "Constructors can be inherited from a superclass"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 4
   },
   {
@@ -402,11 +402,11 @@
     "type": "chat",
     "prompt": "Which of these is used to create an object in JavaScript?",
     "answer": [
-      "{}",
       "[]",
+      "{}",
       "()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 2
   },
   {
@@ -446,11 +446,11 @@
     "type": "chat",
     "prompt": "What is the purpose of the 'use strict' directive in JavaScript?",
     "answer": [
-      "To enable strict mode, which enforces stricter rules for JavaScript code.",
       "To disable strict mode, which allows for more lenient rules for JavaScript code.",
+      "To enable strict mode, which enforces stricter rules for JavaScript code.",
       "To enable backward compatibility with older JavaScript versions."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 4
   },
   {
@@ -490,11 +490,11 @@
     "type": "chat",
     "prompt": "What is the output of this code?   var arr = [1,2,3];   console.log(arr.splice(1,1));",
     "answer": [
-      "[2]",
       "[1,2]",
+      "[2]",
       "[1,3]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 5
   },
   {
