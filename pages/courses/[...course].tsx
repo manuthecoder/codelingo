@@ -102,7 +102,8 @@ export default function CoursePage() {
               <Timeline position="alternate">
                 {levels.map((level: any) => (
                   <Level
-                  progressData={progressData}
+                    progressUrl={url1}
+                    progressData={progressData}
                     questions={
                       (data as any).questions.filter(
                         (obj: any) => obj.level === level

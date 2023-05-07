@@ -20,6 +20,7 @@ import { cloneElement, useMemo, useState } from "react";
 import Slide from "./slide";
 
 export function Level({
+  progressUrl,
   progressData,
   questions,
   reverse,
@@ -109,7 +110,9 @@ export function Level({
       "/api/user/courses/save-data?" +
         new URLSearchParams({ ...data, email: session?.user?.email })
     );
+    await mutate(progressUrl);
     setLoading(false);
+    setOpen(false);
   };
 
   return (

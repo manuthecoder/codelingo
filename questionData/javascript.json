@@ -36,11 +36,11 @@
     "type": "chat",
     "prompt": "What does the typeof operator return?",
     "answer": [
+      "The value of a variable",,
       "The data type of a variable",
-      "The value of a variable",
       "The name of a variable"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 2
   },
   {
@@ -69,11 +69,11 @@
     "type": "chat",
     "prompt": "What is the difference between let and var?",
     "answer": [
-      "let has block scope, while var has function scope.",
       "var has block scope, while let has function scope.",
+      "let has block scope, while var has function scope.",
       "let and var are the same."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "level": 1
   },
   {
