@@ -96,7 +96,9 @@ export default function CoursePage() {
                 fontSize: { xs: "15px", sm: "16px" },
               }}
             >
-              {levels.length} levels &bull; {levels.length * 10} questions
+              {levels.length} levels &bull;{" "}
+              {Math.round(((progressData?.length ?? 0) / levels.length) * 100)}%{" "}
+              attempted
             </Typography>
             <Box>
               <Timeline position="alternate">

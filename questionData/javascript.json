@@ -323,7 +323,7 @@
   },
   {
     "type": "chat",
-    "prompt": "What is polymorphism in Java?",
+    "prompt": "What is polymorphism in Javascript?",
     "answer": [
       "Polymorphism is the ability of an object to inherit multiple classes. In Java, this can be achieved through multiple inheritance",
       "Polymorphism is the ability of an object to take on many forms. In Java, this can be achieved through method overloading and method overriding",
@@ -334,7 +334,7 @@
   },
   {
     "type": "chat",
-    "prompt": "What is the difference between an abstract class and an interface in Java?",
+    "prompt": "What is the difference between an abstract class and an interface in Javascript?",
     "answer": [
       "An abstract class can have instance variables, non-abstract methods, and constructors, while an interface can only have public static final variables and abstract methods. A class can extend only one abstract class, but can implement multiple interfaces",
       "An abstract class can have public static final variables and abstract methods, while an interface can have instance variables, non-abstract methods, and constructors. A class can implement only one abstract class, but can extend multiple interfaces",
@@ -345,22 +345,22 @@
   },
   {
     "type": "chat",
-    "prompt": "What is the `equals()` method in Java used for?",
+    "prompt": "What is the `equals()` method in Javascript used for?",
     "answer": [
       "The `equals()` method is used to check if two objects are equal. It is used to compare the contents of objects, not their memory locations",
       "The `equals()` method is used to compare the memory locations of two objects. It is used to check if two objects are the same instance of a class",
-      "The `equals()` method is not used in Java"
+      "The `equals()` method is not used in Javascript"
     ],
     "correctAnswer": 0,
     "level": 4
   },
   {
     "type": "chat",
-    "prompt": "What is a constructor in Java?",
+    "prompt": "What is a constructor in Javascript?",
     "answer": [
       "A constructor is a method that is used to modify objects. It can be called multiple times to update the object with new values.",
       "A constructor is a special method that is used to create and initialize objects. It has the same name as the class and no return type. When an object is created, the constructor is called automatically and initializes the object with default or provided values.",
-      "A constructor is not a concept in Java."
+      "A constructor is not a concept in Javascript."
     ],
     "correctAnswer": 1,
     "level": 4
