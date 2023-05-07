@@ -6,6 +6,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
+  IconButton,
   SwipeableDrawer,
   Typography,
 } from "@mui/material";
@@ -59,6 +60,9 @@ export function EnrollCourse({ mutationUrl, children }: any) {
         }}
       >
         <Box sx={{ p: 4 }}>
+          <IconButton onClick={handleClose} sx={{ float: "right" }}>
+            <span className="material-symbols-outlined">close</span>
+          </IconButton>
           <Typography variant="h5" sx={{ fontWeight: 700 }} gutterBottom>
             Learn a new language
           </Typography>
