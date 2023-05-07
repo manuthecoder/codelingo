@@ -9,13 +9,23 @@ import {
   CardActionArea,
   Drawer,
   IconButton,
+  LinearProgress,
   Toolbar,
   Typography,
 } from "@mui/material";
-import { cloneElement, useState } from "react";
+import { cloneElement, useMemo, useState } from "react";
+import Slide from "./slide";
 
-export function Level({ reverse, index, language, color }: any) {
+export function Level({ questions, reverse, index, language, color }: any) {
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState<
+    ("incomplete" | "correct" | "incorrect")[]
+  >(["incomplete", "incomplete", "incomplete", "incomplete", "incomplete"]);
+
+  const fiveRandomQuestions = useMemo(() => {
+    const randomQuestions = questions.sort(() => 0.5 - Math.random());
+    return randomQuestions.slice(0, 5);
+  }, [questions]);
 
   const item = reverse ? (
     <TimelineItem>
@@ -39,7 +49,7 @@ export function Level({ reverse, index, language, color }: any) {
           <Typography variant="h6" component="span">
             Level {index}
           </Typography>
-          <Typography>Because you need strength</Typography>
+          {/* <Typography>Absolute beginner</Typography> */}
         </CardActionArea>
       </TimelineContent>
     </TimelineItem>
@@ -64,7 +74,7 @@ export function Level({ reverse, index, language, color }: any) {
           <Typography variant="h6" component="span">
             Level {index}
           </Typography>
-          <Typography>Because it&apos;s awesome!</Typography>
+          {/* <Typography>Basic knowledge</Typography> */}
         </CardActionArea>
       </TimelineContent>
     </TimelineItem>
@@ -91,7 +101,14 @@ export function Level({ reverse, index, language, color }: any) {
           ) && setOpen(false)
         }
       >
-        <AppBar elevation={0}>
+        <AppBar
+          position="sticky"
+          elevation={0}
+          sx={{
+            color: "hsl(var(--base), 10%)",
+            background: "hsl(var(--base), 90%)",
+          }}
+        >
           <Toolbar>
             <IconButton
               onClick={() =>
@@ -105,8 +122,25 @@ export function Level({ reverse, index, language, color }: any) {
               <span className="material-symbols-outlined">close</span>
             </IconButton>
             <Typography>Level {index}</Typography>
+            <LinearProgress
+              sx={{ ml: 2, flexGrow: 1, height: 20, borderRadius: 20 }}
+              variant="determinate"
+              value={
+                progress.filter((p) => p !== "incomplete").length /
+                progress.length
+              }
+            />
           </Toolbar>
         </AppBar>
+        {fiveRandomQuestions.map((question: any, index: number) => (
+          <Slide
+            question={question}
+            key={question.prompt}
+            progress={progress}
+            setProgress={setProgress}
+            index={index}
+          />
+        ))}
       </Drawer>
     </>
   );

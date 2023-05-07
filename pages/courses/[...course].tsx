@@ -92,6 +92,11 @@ export default function CoursePage() {
               <Timeline position="alternate">
                 {levels.map((level: any) => (
                   <Level
+                    questions={
+                      (data as any).questions.filter(
+                        (obj: any) => obj.level === level
+                      ) as any
+                    }
                     index={level}
                     key={level}
                     color={randomColor}
