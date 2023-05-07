@@ -1,3 +1,4 @@
+import { LoadingButton } from "@mui/lab";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
@@ -7,7 +8,6 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import {
   AppBar,
   Box,
-  Button,
   CardActionArea,
   Drawer,
   IconButton,
@@ -15,11 +15,18 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useSession } from "next-auth/react";
 import { cloneElement, useMemo, useState } from "react";
 import Slide from "./slide";
-import { useSession } from "next-auth/react";
 
-export function Level({ questions, reverse, index, language, color }: any) {
+export function Level({
+  progressData,
+  questions,
+  reverse,
+  index,
+  language,
+  color,
+}: any) {
   const { data: session } = useSession();
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState<
@@ -31,6 +38,14 @@ export function Level({ questions, reverse, index, language, color }: any) {
     return randomQuestions.slice(0, 5);
   }, [questions]);
 
+  const percent =
+    progressData?.find((obj: any) => Number(obj.level) === index)?.accuracy ??
+    0;
+
+  const isExisting = progressData?.find(
+    (obj: any) => Number(obj.level) === index
+  );
+
   const item = reverse ? (
     <TimelineItem>
       <TimelineOppositeContent
@@ -39,7 +54,7 @@ export function Level({ questions, reverse, index, language, color }: any) {
         variant="body2"
         color="text.secondary"
       >
-        9:30 am
+        {isExisting ? `${percent}% accuracy` : `Not attempted`}
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineConnector />
@@ -53,7 +68,6 @@ export function Level({ questions, reverse, index, language, color }: any) {
           <Typography variant="h6" component="span">
             Level {index}
           </Typography>
-          {/* <Typography>Absolute beginner</Typography> */}
         </CardActionArea>
       </TimelineContent>
     </TimelineItem>
@@ -64,7 +78,7 @@ export function Level({ questions, reverse, index, language, color }: any) {
         variant="body2"
         color="text.secondary"
       >
-        10:00 am
+        {isExisting ? `${percent}% accuracy` : `Not attempted`}
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineConnector />
@@ -87,13 +101,15 @@ export function Level({ questions, reverse, index, language, color }: any) {
   const trigger = cloneElement(item, {
     onClick: () => setOpen(true),
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleSave = (data: any) => {
-    alert(JSON.stringify(data));
-    fetch(
+  const handleSave = async (data: any) => {
+    setLoading(true);
+    await fetch(
       "/api/user/courses/save-data?" +
         new URLSearchParams({ ...data, email: session?.user?.email })
     );
+    setLoading(false);
   };
 
   return (
@@ -183,8 +199,9 @@ export function Level({ questions, reverse, index, language, color }: any) {
               )}
               %
             </Typography>
-            <Button
-              onClick={() =>
+            <LoadingButton
+              loading={loading}
+              onClick={() => {
                 handleSave({
                   accuracy: Math.round(
                     (progress.filter((p) => p === "correct").length /
@@ -193,12 +210,12 @@ export function Level({ questions, reverse, index, language, color }: any) {
                   ),
                   level: index,
                   language,
-                })
-              }
+                });
+              }}
               variant="contained"
             >
               Save and continue
-            </Button>
+            </LoadingButton>
           </Box>
         )}
       </Drawer>

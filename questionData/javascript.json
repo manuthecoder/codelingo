@@ -301,17 +301,6 @@
   },
   {
     "type": "chat",
-    "prompt": "What is the difference between `public`, `private`, and `protected` access modifiers?",
-    "answer": [
-      "`public` members can be accessed by any class, `private` members can only be accessed within the same class, and `protected` members can be accessed within the same package or by a subclass in a different package",
-      "`public` members can only be accessed within the same package, `private` members can be accessed by any class, and `protected` members can be accessed by a subclass in the same package or in a different package",
-      "`public` members can only be accessed within the same package, `private` members can only be accessed within the same class, and `protected` members can be accessed within the same package or by a subclass in the same package or in a different package"
-    ],
-    "correctAnswer": 0,
-    "level": 4
-  },
-  {
-    "type": "chat",
     "prompt": "What is the difference between `static` and `final`?",
     "answer": [
       "`static` means the member belongs to the class and not to any instance of the class, while `final` means the member cannot be modified after it is initialized",
@@ -444,18 +433,6 @@
   },
   {
     "type": "chat",
-    "prompt": "What is the output of the following code? \nfor (var i = 0; i < 5; i++) { \n  setTimeout(function() { console.log(i); }, 1000); \n}",
-    "answer": [
-      "null",
-      "undefined",
-      "0, 1, 2, 3, 4",
-      "5, 5, 5, 5, 5"
-    ],
-    "correctAnswer": 3,
-    "level": 3
-  },
-  {
-    "type": "chat",
     "prompt": "What is the difference between a function declaration and a function expression in JavaScript?",
     "answer": [
       "A function declaration is hoisted to the top of the scope, while a function expression is not.",
@@ -495,9 +472,86 @@
   },
   {
     "type": "chat",
-    "prompt": "What is the output of this code?\nvar arr = [1,2,3];\nconsole.log(arr.splice(1,1));",
+    "prompt": "What is the output of this code?   var arr = [1,2,3];   console.log(arr.splice(1,1));",
     "answer": [ "[2]", "[1,2]", "[1,3]" ],
     "correctAnswer": 0,
     "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the difference between 'setTimeout' and 'setInterval' in JavaScript?",
+    "answer": [ "They are interchangeable", "'setTimeout' executes the function once after a delay, while 'setInterval' executes the function repeatedly with a fixed time delay between each execution", "'setInterval' executes the function once after a delay, while 'setTimeout' executes the function repeatedly with a fixed time delay between each execution" ],
+    "correctAnswer": 1,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the difference between 'Object.create' and 'new Object' in JavaScript?",
+    "answer": [ "They are interchangeable", "'Object.create' creates a new object with the specified prototype object, while 'new Object' creates a new object with the default Object prototype", "'new Object' creates a new object with the specified prototype object, while 'Object.create' creates a new object with the default Object prototype" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the difference between 'call' and 'apply' methods in JavaScript?",
+    "answer": [ "'call' method accepts arguments as a comma-separated list, while 'apply' method accepts arguments as an array", "'apply' method accepts arguments as a comma-separated list, while 'call' method accepts arguments as an array", "Both methods accept arguments as a comma-separated list" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the 'this' keyword in JavaScript?",
+    "answer": [ "The 'this' keyword refers to the object that it belongs to, and it changes depending on how the function is called", "The 'this' keyword refers to the global object, and it cannot be changed", "The 'this' keyword refers to the function that it belongs to, and it cannot be changed" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the difference between 'slice' and 'splice' in JavaScript?",
+    "answer": [ "'slice' creates a new array with the elements from the original array, while 'splice' removes or replaces elements in the original array", "'splice' creates a new array with the elements from the original array, while 'slice' removes or replaces elements in the original array", "Both 'slice' and 'splice' remove or replace elements in the original array" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the event loop in JavaScript?",
+    "answer": [ "The event loop is a mechanism that handles asynchronous callbacks and ensures that they are executed in the correct order", "The event loop is a way to create new threads in JavaScript and run them concurrently", "The event loop is a data structure used to store information about events and callbacks" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is a promise in JavaScript?",
+    "answer": [ "A promise is an object representing the eventual completion or failure of an asynchronous operation", "A promise is a function that takes a callback as an argument and returns a new function", "A promise is a data structure used to store information about asynchronous operations" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is a generator function in JavaScript?",
+    "answer": [ "A generator function is a special type of function that can be paused and resumed, allowing it to generate a sequence of values over time", "A generator function is a function that takes a callback as an argument and returns a new function", "A generator function is a function that is automatically called when an event occurs" ],
+    "correctAnswer": 0,
+    "level": 4
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the spread operator in JavaScript?",
+    "answer": [ "The spread operator (...) allows an iterable such as an array or string to be expanded in places where zero or more arguments or elements are expected", "The spread operator (...) allows a function to take an arbitrary number of arguments as an array", "The spread operator (...) allows a variable to be declared without a specific type" ],
+    "correctAnswer": 0,
+    "level": 3
+  },
+  {
+    "type": "chat",
+    "prompt": "What is the difference between Object.seal() and Object.freeze() methods in JavaScript?",
+    "answer": [ "Object.seal() prevents adding or deleting properties from an object, while Object.freeze() also prevents changing the value of existing properties", "Object.freeze() prevents adding or deleting properties from an object, while Object.seal() also prevents changing the value of existing properties", "There is no difference between Object.seal() and Object.freeze() methods" ],
+    "correctAnswer": 0,
+    "level": 5
+  },
+  {
+    "type": "chat",
+    "prompt": "What is hoisting in JavaScript?",
+    "answer": [ "Hoisting is a behavior where variable and function declarations are moved to the top of their respective scopes before code execution", "Hoisting is a behavior where variables and function declarations are scoped to the function in which they are defined", "Hoisting is a behavior where variables and function declarations are scoped to the global object" ],
+    "correctAnswer": 0,
+    "level": 3
   }
 ]

@@ -29,6 +29,15 @@ export default function CoursePage() {
     fetch(url).then((res) => res.json())
   );
 
+  const url1 = `/api/user/courses/get-data?${new URLSearchParams({
+    language,
+    email: session?.user?.email,
+  })}`;
+
+  const { data: progressData, error: progressDataError } = useSWR(url1, (e) =>
+    fetch(e).then((res) => res.json())
+  );
+
   const levels =
     data && Array.isArray(data.questions)
       ? [
@@ -52,6 +61,7 @@ export default function CoursePage() {
     ];
     return colors[Math.floor(Math.random() * colors.length)];
   }, []);
+
   return (
     <Layout>
       <Box sx={{ p: 5 }}>
@@ -92,6 +102,7 @@ export default function CoursePage() {
               <Timeline position="alternate">
                 {levels.map((level: any) => (
                   <Level
+                  progressData={progressData}
                     questions={
                       (data as any).questions.filter(
                         (obj: any) => obj.level === level
@@ -117,7 +128,7 @@ export default function CoursePage() {
                 </TimelineItem>
               </Timeline>
             </Box>
-            {error && (
+            {(error || progressDataError) && (
               <Alert severity="error" sx={{ mt: 2 }} variant="filled">
                 Oh no! We couldn&apos;t load the pathway for this course! Please
                 try again later!
